@@ -1,0 +1,99 @@
+#exercice 2.3.11 question 2)
+
+message = input("Entrez le message a decoder.")
+message_decod = ""
+i = 0
+for char in message:
+    if char == " ":
+        message_decod = message_decod + char
+    elif char == "'":
+        message_decod = message_decod + char
+    elif ord(char) == 97:
+        char = "x"
+        message_decod = message_decod + char
+    elif ord(char) == 98:
+        char = "y"
+        message_decod = message_decod + char
+    elif ord(char) == 99:
+        char = "z"
+        message_decod = message_decod + char
+    else:
+        char = ord(char)
+        char = char - 3
+        char = chr(char)
+        message_decod = message_decod + char
+print(message_decod)
+
+
+
+
+# 2.3.12
+numero_de_secu = input("Entrez le numero de securiter sociale sans espace.")
+
+key = numero_de_secu[-2] + numero_de_secu[-1]
+key = int(key)
+numero_without_key = numero_de_secu[0:13]
+numero_without_key = int(numero_without_key)
+if key == 97 - numero_without_key % 97:
+    print("Le numero est correct.")
+else:
+    print("le numero n'est pas bon.")
+
+
+#2.3.13
+
+import math
+
+
+print("Soit une équation de la forme : ax^2 + bx + c = 0")
+
+a = float(input("a = "))
+b = float(input("b = "))
+c = float(input("c = "))
+
+if a == 0:
+    "Ceci n'est pas une equation du 2nd degree"
+# Calcul du discriminant delta = b**2 - 4*a*c.
+# Remarques : 4*a*c =/= 4ac qui est un autre nom de variable
+delta = b ** 2 - 4 * a * c
+
+# Si delta est négatif
+if (delta < 0):
+    print("L'équation n'a pas de solution")
+
+# Sinon, delta peut être positif ou nul
+else:
+    # Si delta est nul
+    if (delta == 0):
+        print("L'équation a une solution double.")
+        x = -b / (2. * a)
+        print("La solution est x = ", x)
+
+    # Sinon, delta est positif.
+    else:
+        print("L'équation a deux solutions .")
+        x1 = (-b - math.sqrt(delta)) / (2 * a)
+        x2 = (-b + math.sqrt(delta)) / (2 * a)
+        print("Les solutions sont x1 = ", x1, " et ", x2)
+# Par contre si le mec fais pas spe math comment il trouve la solution ?
+# Flemme de faire l'equation du 1er degree
+
+
+#2.3.14
+
+note_bac = float(input("Entrez la note du bac sur 20."))
+if note_bac > 20:
+    print("Vous avez mis une note superieur à 20.")
+elif note_bac < 0:
+    print("Vous avez mis une note inferieur à 0.")
+else:
+    if note_bac > 16:
+        print("Bac obtenue avec mention tres bien.")
+    elif note_bac > 14:
+        print("Bac obtenue avec mention bien.")
+    elif note_bac > 12:
+        print("Bac obtenue avec mention passable.")
+    elif note_bac > 10:
+        print("Bac obtenue.")
+    elif note_bac < 10:
+        print("Recaler.")
